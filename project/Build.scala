@@ -1,6 +1,8 @@
 import sbt._
 import Keys._
 import java.net.URL
+import sbtassembly.Plugin._
+import AssemblyKeys._ 
 
 object SSoup extends Build {
    
@@ -8,11 +10,14 @@ object SSoup extends Build {
      organization := "org.filippodeluca.ssoup",
      name := "ssoup",
      version := "1.0-SNAPSHOT",
-     scalaVersion := "2.10.1",
+     scalaVersion := "2.10.2",
      licenses := Seq("Apache License, Version 2.0"->new URL("http://www.apache.org/licenses/LICENSE-2.0.html")),
      libraryDependencies ++= dependencies,
      autoCompilerPlugins := true
-   ) settings(publishSettings:_*))
+   ) settings(publishSettings:_*)
+     settings(buildSettings: _*)
+     settings(assemblySettings: _*)
+   )
    
    def publishSettings: Seq[Setting[_]] = Seq(
      // If we want on maven central, we need to be in maven style.
@@ -51,6 +56,4 @@ object SSoup extends Build {
      "org.specs2" % "specs2_2.10" % "1.14" % "test",
      "org.mockito" % "mockito-all" % "1.9.0" % "test"
    )
-   
-   
 }
