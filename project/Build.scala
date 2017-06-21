@@ -8,7 +8,7 @@ object SSoup extends Build {
      organization := "org.filippodeluca.ssoup",
      name := "ssoup",
      version := "1.0-SNAPSHOT",
-     scalaVersion := "2.11.6",
+     scalaVersion := "2.11.8",
      licenses := Seq("Apache License, Version 2.0"->new URL("http://www.apache.org/licenses/LICENSE-2.0.html")),
      libraryDependencies ++= dependencies,
      autoCompilerPlugins := true
